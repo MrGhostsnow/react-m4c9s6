@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+
+.button_Reset {
+    display: flex;
+    justify-content: center;
+}
+
+.button_Reset button {
+    display: flex;
+    padding: 0.5em;
+    margin-top: 1em;
+    background-color: #000000;
+    color: #fff;
+    border-radius: 0.5em ;
+    cursor: pointer;
+    font-size: large;
+    letter-spacing: 0.2em;
+    font-family: 'Titan One', cursive;
+}
+
+.button_Reset button:hover {
+    color: gold;
+}

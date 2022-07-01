@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Board.css';
 import Square from '../../components/Square/Square';
+import ButtonReset from '../ButtonReset/ButtonReset';
 
 function calculateWinner(squares) {
   const lines = [
@@ -32,6 +33,11 @@ function Board() {
 
   const [xIsNext, setXIsNext] = useState(true);
 
+  const reset = () => {
+    setSquares(initialSquares)
+    setXIsNext(true)
+  }
+
   const handleClickEvent = (i) => {
     const newSquares = [...squares];
 
@@ -44,6 +50,7 @@ function Board() {
     newSquares[i] = xIsNext ? 'X' : 'O';
     setSquares(newSquares);
     setXIsNext(!xIsNext);
+    
   };
 
   const renderSquare = (i) => {
@@ -61,20 +68,21 @@ function Board() {
     <div className="boardStyles">
       <div className="status">{status}</div>
       <div className="board-row">
+        {renderSquare(0)}
         {renderSquare(1)}
         {renderSquare(2)}
-        {renderSquare(3)}
       </div>
       <div className="board-row">
+        {renderSquare(3)}
         {renderSquare(4)}
         {renderSquare(5)}
-        {renderSquare(6)}
       </div>
       <div className="board-row">
+        {renderSquare(6)}
         {renderSquare(7)}
         {renderSquare(8)}
-        {renderSquare(9)}
       </div>
+      <ButtonReset reset={reset}/>
     </div>
   );
 }
